@@ -1,11 +1,10 @@
 // this is the day2 of flutter where we are learning dart.
 // use dart.dev for learning dart(can).
 
-
-
-
-import 'package:catalog/home_page.dart';
+import 'package:catalog/pages/home_page.dart';
+import 'package:catalog/pages/login_page.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,11 +15,38 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bringVegetables(thaila: true);
+
 
     return MaterialApp(
-      home:HomePage()
+      debugShowCheckedModeBanner: false,
+      // home: HomePage(),
+      themeMode: ThemeMode.dark,
+      theme: ThemeData(
+
+        primarySwatch: Colors.deepPurple,
+        // useMaterial3: true,
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        // useMaterial3: true,
+        // primaryColor: Colors.red,
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.green,
+      // brightness: Brightness.dark,
+      ),
+      initialRoute: "/home",        // set's the initial route.
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
+      },
+
 
     );
+  }
+
+  bringVegetables({@required bool? thaila, int rupees = 100}) {
+    // ? represents that it can be of type null.
   }
 }
 
