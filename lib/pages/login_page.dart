@@ -1,3 +1,4 @@
+import 'package:catalog/routes/routes.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
@@ -31,15 +32,18 @@ class LoginPage extends StatelessWidget {
               "assets/images/login.png",
               fit: BoxFit.cover,
               // width: 150,
-
+              height: 200,
               // alignment: Alignment.center,
             ),
-            SizedBox(height: 20,),
+
+            SizedBox(
+              height: 20,
+            ),
 
             Text("Welcome",
               style: TextStyle(
                 // fontWeight: FontWeight.w500,
-                fontSize: 35,
+                fontSize: 28,
                 // fontFamily: GoogleFonts.solway().fontFamily,
               ),
             ),
@@ -68,33 +72,31 @@ class LoginPage extends StatelessWidget {
               ),
             ),
 
-
             SizedBox(
-              height: 20,
+              height: 40,
 
             ),
 
             ElevatedButton(
-
-
-            onPressed:() {
-              print("Button Pressed");
-              // Navigator.push(context, )
-
-
-            },
-              style: TextButton.styleFrom(backgroundColor: Colors.deepPurple,
-                // backgroundColor: ,
+              onPressed: () {
+                // print("Button Pressed");
+                // Navigator.push(context, ...)
+                Navigator.pushNamed(context, MyRoutes.homeRoute);
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(150, 45),
+                maximumSize: Size(150, 60),
+                backgroundColor: Colors.deepPurple,
+                // shape: BeveledRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))
               ),
-              child: Text("Login",
-              style: TextStyle(
-
-                color: Colors.white,
-              ),),
-
+              child: Text(
+                "Login",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             )
-
-
 
 
           ],
