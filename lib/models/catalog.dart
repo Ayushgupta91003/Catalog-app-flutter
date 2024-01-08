@@ -24,7 +24,7 @@ class CatalogModel{
     Item(
         id: 1,
         name: "iPhone 12 Pro",
-        desc: "Apple iPhone 12th generation",
+        desc: "Apple iPhone 12th generation ",
         price: 999,
         color: "#33505a",
         image:
