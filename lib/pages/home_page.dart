@@ -1,5 +1,8 @@
+import 'package:catalog/models/catalog.dart';
 import 'package:catalog/widgets/drawer.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/item_widget.dart';
 // import 'package:google_fonts/google_fonts.dart';
 class HomePage extends StatelessWidget {
   // const HomePage({super.key});
@@ -14,6 +17,9 @@ class HomePage extends StatelessWidget {
   // final ke listt mein addition kar sakte hai lekin const mein nahi kar saktte.
   @override
   Widget build(BuildContext context) {
+
+    final dummyList = List.generate(50, (index)=>CatalogModel.items[0]);
+
     return Scaffold(
       appBar: AppBar(
 
@@ -31,7 +37,14 @@ class HomePage extends StatelessWidget {
         // by default ye text ios me center aur android mein left side.
       ),
       body: Center(
-        child: Container(child: Text("Welcome to the ${days} days of flutter by $name")),
+        child: ListView.builder(
+            itemCount: dummyList.length,
+            itemBuilder: (context, index){
+              return ItemWidget(
+                item: dummyList[index],
+              );
+            }
+        )
         // $ wala is called string interpolation
 
       ),

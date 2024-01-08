@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
@@ -8,6 +9,11 @@ class MyTheme {
     fontFamily: GoogleFonts.lato().fontFamily,
     // iconTheme: IconThemeData(color: Colors.white),
     appBarTheme: AppBarTheme(
+
+      // systemOverlayStyle: SystemUiOverlayStyle(
+      //
+      //   statusBarColor: Colors.black,
+      // ),
       color: Colors.white,
       iconTheme: IconThemeData(
         color: Colors.black,
@@ -16,8 +22,8 @@ class MyTheme {
       centerTitle: true,
       titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
         fontFamily: GoogleFonts.lato().fontFamily,
-        fontSize: 28,
-        fontWeight: FontWeight.bold,
+        fontSize: 25,
+        fontWeight: FontWeight.w600,
       ), // Remove the comma here
     ),
   );
