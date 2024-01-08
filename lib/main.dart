@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.deepPurple,
         fontFamily: GoogleFonts.lato().fontFamily,
+        iconTheme: IconThemeData(color: Colors.white),
         // primaryTextTheme: GoogleFonts.latoTextTheme(),
         // useMaterial3: true,
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       // brightness: Brightness.dark,
       ),
-      // initialRoute: "/home",        // set's the initial route.
+      initialRoute: "/home",        // set's the initial route.
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
