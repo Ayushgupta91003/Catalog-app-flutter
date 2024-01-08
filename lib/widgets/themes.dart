@@ -15,7 +15,7 @@ class MyTheme {
       elevation: 0.0,
       centerTitle: true,
       titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
-        fontFamily: 'OpenSans',
+        fontFamily: GoogleFonts.lato().fontFamily,
         fontSize: 28,
         fontWeight: FontWeight.bold,
       ), // Remove the comma here
