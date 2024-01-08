@@ -16,18 +16,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text("Catalog App",
-            style:TextStyle(
-              color:Colors.white,
-              fontWeight: FontWeight.w500,
 
-            ),
+        // centerTitle: true,
+        // iconTheme: IconThemeData(color: Colors.black),
+        title: Text("Catalog App",
+            // style:TextStyle(
+            //   // color:Colors.black,
+            //   fontWeight: FontWeight.w500,
+            // ),
         ),
 
 
-        backgroundColor: Colors.deepPurple,
+        // backgroundColor: Colors.white,
         // by default ye text ios me center aur android mein left side.
       ),
       body: Center(

@@ -4,6 +4,7 @@
 import 'package:catalog/pages/home_page.dart';
 import 'package:catalog/pages/login_page.dart';
 import 'package:catalog/routes/routes.dart';
+import 'package:catalog/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,22 +23,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: HomePage(),
-      themeMode: ThemeMode.dark,
-      theme: ThemeData(
-
-        primarySwatch: Colors.deepPurple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-        iconTheme: IconThemeData(color: Colors.white),
-        // primaryTextTheme: GoogleFonts.latoTextTheme(),
-        // useMaterial3: true,
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        // useMaterial3: true,
-        // primaryColor: Colors.red,
-      ),
-      darkTheme: ThemeData(
-        primarySwatch: Colors.green,
-      // brightness: Brightness.dark,
-      ),
+      themeMode: ThemeMode.light,
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       initialRoute: "/home",        // set's the initial route.
       routes: {
         "/": (context) => LoginPage(),
