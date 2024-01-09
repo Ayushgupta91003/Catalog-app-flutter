@@ -70,14 +70,22 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
           child:(CatalogModel.items!=null && CatalogModel.items.isNotEmpty)?
 
-          ListView.builder(
-              itemCount: CatalogModel.items.length,
-              itemBuilder: (context, index){
-                return ItemWidget(
-                  item: CatalogModel.items[index],
-                );
-              }
-          ):
+          // ListView.builder(
+          //     itemCount: CatalogModel.items.length,
+          //     itemBuilder: (context, index){
+          //       return ItemWidget(
+          //         item: CatalogModel.items[index],
+          //       );
+          //     }
+          // ):
+          GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemBuilder: (context,index){
+              final item = CatalogModel.items[index];
+              return GridTile(child: Image.network(item.image.toString()));
+            },
+            itemCount:CatalogModel.items.length,)
+          :
           Center(
             child: CircularProgressIndicator(),
           )
