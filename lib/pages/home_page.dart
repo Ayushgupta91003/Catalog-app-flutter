@@ -79,10 +79,56 @@ class _HomePageState extends State<HomePage> {
           //     }
           // ):
           GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              mainAxisSpacing: 16,
+              crossAxisSpacing: 10,
+
+            ),
             itemBuilder: (context,index){
               final item = CatalogModel.items[index];
-              return GridTile(child: Image.network(item.image.toString()));
+              // return GridTile(
+              //     child: Image.network(item.image.toString()));
+
+
+              return Card(
+                clipBehavior: Clip.antiAlias,
+                elevation: 5.0,
+                shape:RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: GridTile(
+              header: Container(
+              child: Text(
+              item.name.toString(),
+              style: TextStyle(color: Colors.white),
+              ),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                ),
+              ),
+                  // footer: Text(item.price.toString()),
+
+                  footer: Container(
+                    child: Text(
+                      item.price.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                    ),
+                  ),
+                  child: item.image != null
+                      ? Image.network(item.image!)
+                      : CircularProgressIndicator(), // or any placeholder widget
+                ),
+              );
+
+
+
             },
             itemCount:CatalogModel.items.length,)
           :
