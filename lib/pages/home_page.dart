@@ -1,24 +1,52 @@
 import 'package:catalog/models/catalog.dart';
 import 'package:catalog/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import 'dart:convert';        // used in decoding
 import '../widgets/item_widget.dart';
 // import 'package:google_fonts/google_fonts.dart';
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   // const HomePage({super.key});
-  // double, bool
   final int days = 30;
+
   final String name = "codepur";
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  loadData() async{
+    await Future.delayed(Duration(seconds: 2));
+    final catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    // print(catalogJson);
+    final decodeData = jsonDecode(catalogJson);
+    var productsData = decodeData["products"];
+    // print(productsData);
+
+    // List<Item> list = List.from(productsData).map((e) => null).toList();
+    // List<Item> list = List.from(productsData.map((e) => Item.fromJson(e))).toList();
+    // List<Item> list = List<Item>.from(productsData.map((e) => Item.fromMap(e))).toList();   // sir ka nahi chal raha tha.
+    CatalogModel.items = List.from(productsData).map<Item>((item)=>Item.fromMap(item)).toList();
+    setState(() {
+      // data change ho raha hai. kyuki items mein ek hi item hai. isiliye setState call karna padta hai.
+
+    });
+  }
+
   // num can take both int and double.
-  // var can take all
-  // var day:String = "Tues";     // ek tareeka hai.
-  // const pi = 3.14;
-  // final k = 10;
-  // final ke listt mein addition kar sakte hai lekin const mein nahi kar saktte.
   @override
   Widget build(BuildContext context) {
 
-    final dummyList = List.generate(50, (index)=>CatalogModel.items[0]);
+    // final dummyList = List.generate(50, (index)=>CatalogModel.items[0]);
 
     return Scaffold(
       appBar: AppBar(
@@ -40,14 +68,20 @@ class HomePage extends StatelessWidget {
 
         child: Container(
           color: Colors.white,
-          child: ListView.builder(
-              itemCount: dummyList.length,
+          child:(CatalogModel.items!=null && CatalogModel.items.isNotEmpty)?
+
+          ListView.builder(
+              itemCount: CatalogModel.items.length,
               itemBuilder: (context, index){
                 return ItemWidget(
-                  item: dummyList[index],
+                  item: CatalogModel.items[index],
                 );
               }
-          ),
+          ):
+          Center(
+            child: CircularProgressIndicator(),
+          )
+          ,
         )
         // $ wala is called string interpolation
 
