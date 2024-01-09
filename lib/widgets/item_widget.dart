@@ -33,7 +33,9 @@ class ItemWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: Card(
-        // elevation: 0.0,
+        shape: StadiumBorder(),
+        color:Colors.white,
+        elevation: 0.5,
         child: ListTile(
           // style: ,
           onTap: (){

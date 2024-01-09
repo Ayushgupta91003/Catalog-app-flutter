@@ -37,13 +37,17 @@ class HomePage extends StatelessWidget {
         // by default ye text ios me center aur android mein left side.
       ),
       body: Center(
-        child: ListView.builder(
-            itemCount: dummyList.length,
-            itemBuilder: (context, index){
-              return ItemWidget(
-                item: dummyList[index],
-              );
-            }
+
+        child: Container(
+          color: Colors.white,
+          child: ListView.builder(
+              itemCount: dummyList.length,
+              itemBuilder: (context, index){
+                return ItemWidget(
+                  item: dummyList[index],
+                );
+              }
+          ),
         )
         // $ wala is called string interpolation
 
