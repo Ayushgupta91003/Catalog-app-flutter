@@ -1,9 +1,11 @@
 import 'package:catalog/models/catalog.dart';
 import 'package:catalog/widgets/drawer.dart';
 import 'package:catalog/widgets/themes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';        // used in decoding
+import '../routes/routes.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
 import '../widgets/item_widget.dart';
@@ -48,6 +50,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(50, (index)=>CatalogModel.items[0]);
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.pushNamed(context, MyRoutes.cartRoute);
+        },
+        child: Icon(CupertinoIcons.cart, color: Colors.white,),
+        backgroundColor: MyTheme.darkBluishColor,
+      ),
       backgroundColor: MyTheme.creamColor,
       body:SafeArea(
         child: Container(

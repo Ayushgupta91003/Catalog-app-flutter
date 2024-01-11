@@ -11,7 +11,7 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        backgroundColor: Colors.transparent,
       ),
       backgroundColor: MyTheme.creamColor,
       body:SafeArea(
@@ -35,6 +35,8 @@ class HomeDetailPage extends StatelessWidget {
                   children: [
                     catalog.name.toString().text.xl3.color(Colors.black).bold.make(), // toString.
                     catalog.desc.toString().text.xl.textStyle(context.captionStyle).make(),      // captionStyle makes light color.
+                    "Lorem ipsum dolor sit amet ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in   velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.".
+                    text.textStyle(context.captionStyle?.copyWith(fontSize:12)).make().p16(),
 
                   ],
                 ).py32(),
@@ -59,7 +61,7 @@ class HomeDetailPage extends StatelessWidget {
 
             ElevatedButton(
               onPressed: (){},
-              child: "Buy".text.color(Colors.white).make(),
+              child: "Add to Cart".text.color(Colors.white).make(),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(MyTheme.darkBluishColor),
                 // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -69,7 +71,7 @@ class HomeDetailPage extends StatelessWidget {
                 // ),
               ),
 
-            ).wh(100,50),
+            ).wh(139,50),
                                       // .w20(context) se bhi button ki width badhayi jaa sakti thi.
           ],
         ).p32(),

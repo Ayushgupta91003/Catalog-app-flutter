@@ -1,6 +1,7 @@
 // this is the day2 of flutter where we are learning dart.
 // use dart.dev for learning dart(can).
 
+import 'package:catalog/pages/cart_page.dart';
 import 'package:catalog/pages/home_page.dart';
 import 'package:catalog/pages/login_page.dart';
 import 'package:catalog/routes/routes.dart';
@@ -35,6 +36,10 @@ class MyApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.cartRoute: (context) => CartPage(),
+
+
+
       },
 
 

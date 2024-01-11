@@ -73,11 +73,11 @@ class CatalogItem extends StatelessWidget {
                   children: [
                     "\$${catalog.price}".toString().text.bold.xl.make(),
 
-                    10.heightBox,
+                    // 10.heightBox,
 
                     ElevatedButton(
                       onPressed: (){},
-                      child: "Buy".text.color(Colors.white).make(),
+                      child: "Addt Cart".text.textStyle(context.captionStyle).color(Colors.white).make(),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(MyTheme.darkBluishColor),
                         // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -89,7 +89,7 @@ class CatalogItem extends StatelessWidget {
 
                     )
                   ],
-                ).pOnly(right: 8.0),
+                ).pOnly(right: 0.0),
               ],
             ))
           ],
