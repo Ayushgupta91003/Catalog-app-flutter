@@ -4,12 +4,12 @@ import 'package:catalog/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';        // used in decoding
+import '../widgets/home_widgets/catalog_header.dart';
+import '../widgets/home_widgets/catalog_list.dart';
 import '../widgets/item_widget.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'home_widgets/catalog_header.dart';
-import 'home_widgets/catalog_list.dart';
 
 
 
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
 
               CatalogHeader(),
               if(CatalogModel.items!=null && CatalogModel.items.isNotEmpty)
-                CatalogList().expand()
+                CatalogList().py16().expand()
               else
                 CircularProgressIndicator().centered().py16().expand(),         // center mein laane ke liye.
 
