@@ -1,0 +1,2 @@
+we have added velocity_x package from flutter. used for making better ui's.
+https://pub.dev/packages/velocity_x/install    this is the link.

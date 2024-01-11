@@ -5,6 +5,9 @@ import 'package:flutter/services.dart';
 import 'dart:convert';        // used in decoding
 import '../widgets/item_widget.dart';
 // import 'package:google_fonts/google_fonts.dart';
+
+import 'package:velocity_x/velocity_x.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
