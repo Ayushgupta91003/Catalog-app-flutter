@@ -1,5 +1,6 @@
 import 'package:catalog/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -35,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.canvasColor,
       // appBar: AppBar(
       //   backgroundColor: Colors.deepPurple,
       //   elevation: 10,
@@ -132,7 +134,8 @@ class _LoginPageState extends State<LoginPage> {
               Material(
 
 
-                color: changeButton?Colors.black: Colors.deepPurple,
+                // color: changeButton?Colors.black: Colors.deepPurple,
+                color:context.theme.primaryColor,
                 borderRadius: BorderRadius.circular(changeButton?50:8),
                 child: InkWell(
                   splashColor: Colors.red,

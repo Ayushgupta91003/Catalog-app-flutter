@@ -63,7 +63,7 @@ class CatalogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                catalog.name.toString().text.color(Colors.black).xl.bold.make(), // toString.
+                catalog.name.toString().text.color(context.theme.secondaryHeaderColor).xl.bold.make(), // toString.
                 catalog.desc.toString().text.textStyle(context.captionStyle).make(),      // captionStyle makes light color.                     // tostring
                 // 10.heightBox,
                 ButtonBar(
@@ -77,9 +77,11 @@ class CatalogItem extends StatelessWidget {
 
                     ElevatedButton(
                       onPressed: (){},
-                      child: "Addt Cart".text.textStyle(context.captionStyle).color(Colors.white).make(),
+                      child: "AddtCart".text.textStyle(context.captionStyle).color(Colors.white).make(),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(MyTheme.darkBluishColor),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            context.theme.primaryColor,
+                        ),
                         // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         //   RoundedRectangleBorder(
                         //     borderRadius: BorderRadius.circular(5.0), // Set your desired radius here
@@ -94,6 +96,6 @@ class CatalogItem extends StatelessWidget {
             ))
           ],
         )
-    ).white.rounded.square(150).make().py16();      // py matlab vertical padding(up and down)
+    ).color(context.cardColor).rounded.square(150).make().py16();      // py matlab vertical padding(up and down)
   }
 }

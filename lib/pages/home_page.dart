@@ -50,14 +50,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(50, (index)=>CatalogModel.items[0]);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+      // backgroundColor: context.cardColor,
+      backgroundColor: context.canvasColor,
+      // if we are not using velocity x, then Theme.of(context).cardColor/canvasColor.
+
+
+
+        floatingActionButton: FloatingActionButton(
         onPressed: (){
           Navigator.pushNamed(context, MyRoutes.cartRoute);
         },
         child: Icon(CupertinoIcons.cart, color: Colors.white,),
-        backgroundColor: MyTheme.darkBluishColor,
+          // backgroundColor: MyTheme.lightBluishColor,                          // sir has used different method for this.
+          backgroundColor: context.theme.primaryColor,
       ),
-      backgroundColor: MyTheme.creamColor,
+
+
+
+
       body:SafeArea(
         child: Container(
           padding:Vx.m32,       // Edgeinsets.all 32.
