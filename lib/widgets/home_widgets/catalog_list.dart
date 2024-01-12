@@ -16,7 +16,7 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,       // for expanded use.
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.getByPosition(index);
+        final catalog = CatalogModel.items[index];
         return InkWell(
           onTap: (){
             // Navigator.pushNamed(context, MyRoutes.homeDetailsRoute);    // not used in this scenario. ass we want to pass arguments also.
