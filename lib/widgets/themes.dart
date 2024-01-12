@@ -64,24 +64,18 @@ class MyTheme {
 
     // iconTheme: IconThemeData(color: Colors.white),
     appBarTheme: AppBarTheme(
-
-      // systemOverlayStyle: SystemUiOverlayStyle(
-      //
-      //   statusBarColor: Colors.black,
-      // ),
       color: Colors.black,
-
       iconTheme: IconThemeData(
         color: Colors.white,
       ),
       elevation: 0.0,
-
       centerTitle: true,
       titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
         fontFamily: GoogleFonts.lato().fontFamily,
         fontSize: 25,
+        color: Colors.white,
         fontWeight: FontWeight.w600,
-      ), // Remove the comma here
+      ), // Remove the comma here                                             // sir ka nahi chal raha tha. toh heading 6 ka change kar diya. andar jaa jaa ke dekha 6 hr 20 mins.
     ),
   );
 

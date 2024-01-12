@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
 
       body:SafeArea(
         child: Container(
-          padding:Vx.m32,       // Edgeinsets.all 32.
+          padding:Vx.m16,       // Edgeinsets.all 32.
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

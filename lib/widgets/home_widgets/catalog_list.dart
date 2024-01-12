@@ -16,7 +16,7 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,       // for expanded use.
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
+        final catalog = CatalogModel.getByPosition(index);
         return InkWell(
           onTap: (){
             // Navigator.pushNamed(context, MyRoutes.homeDetailsRoute);    // not used in this scenario. ass we want to pass arguments also.
@@ -77,7 +77,7 @@ class CatalogItem extends StatelessWidget {
 
                     ElevatedButton(
                       onPressed: (){},
-                      child: "AddtCart".text.textStyle(context.captionStyle).color(Colors.white).make(),
+                      child: "Add to Cart".text.textStyle(context.captionStyle).color(Colors.white).make(),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             context.theme.primaryColor,
