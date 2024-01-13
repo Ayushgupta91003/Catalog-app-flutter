@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../models/catalog.dart';
 import '../../widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'add_to_cart.dart';
 import 'catalog_image.dart';
 
 
@@ -78,7 +79,7 @@ class _CatalogItemState extends State<CatalogItem> {
                     "\$${widget.catalog.price}".toString().text.bold.xl.make(),
 
                     // 10.heightBox,
-                    _AddToCart(catalog: widget.catalog),
+                    AddToCart(catalog: widget.catalog),
                     // ElevatedButton(
                     //   onPressed: (){
                     //     isPressed = true;
@@ -107,48 +108,4 @@ class _CatalogItemState extends State<CatalogItem> {
   }
 }
 
-
-
-class _AddToCart extends StatefulWidget {
-  final Item catalog;
-  const _AddToCart({super.key, required this.catalog});
-
-  @override
-  State<_AddToCart> createState() => _AddToCartState();
-}
-
-class _AddToCartState extends State<_AddToCart> {
-
-  bool isAdded = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: (){
-        final _catalog = CatalogModel();
-        final _cart = CartModel();
-        _cart.catalog = _catalog;
-        _cart.add(widget.catalog);
-        setState(() {
-        isAdded = isAdded.toggle();
-
-
-        });
-
-      },
-      child: isAdded? Icon(Icons.done, color: Colors.white,): "Add to Cart".text.textStyle(context.captionStyle).color(Colors.white).make(),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(
-          context.theme.primaryColor,
-        ),
-        // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        //   RoundedRectangleBorder(
-        //     borderRadius: BorderRadius.circular(5.0), // Set your desired radius here
-        //   ),
-        // ),
-      ),
-
-    );
-  }
-}
 

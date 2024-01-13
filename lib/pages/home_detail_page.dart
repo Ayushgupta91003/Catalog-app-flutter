@@ -1,3 +1,4 @@
+import 'package:catalog/widgets/home_widgets/add_to_cart.dart';
 import 'package:catalog/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -57,19 +58,21 @@ class HomeDetailPage extends StatelessWidget {
           children: [
             "\$${catalog.price}".toString().text.bold.xl4.red800.make(),
             10.heightBox,
-            ElevatedButton(
-              onPressed: (){},
-              child: "Add to Cart".text.color(Colors.white).make(),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(context.theme.primaryColor),
-                // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                //   RoundedRectangleBorder(
-                //     borderRadius: BorderRadius.circular(5.0), // Set your desired radius here
-                //   ),
-                // ),
-              ),
+            // ElevatedButton(
+            //   onPressed: (){},
+            //   child: "Add to Cart".text.color(Colors.white).make(),
+            //   style: ButtonStyle(
+            //     backgroundColor: MaterialStateProperty.all<Color>(context.theme.primaryColor),
+            //     // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            //     //   RoundedRectangleBorder(
+            //     //     borderRadius: BorderRadius.circular(5.0), // Set your desired radius here
+            //     //   ),
+            //     // ),
+            //   ),
 
-            ).wh(139,50),
+
+            // )
+            AddToCart(catalog: catalog).wh(139,50),
                                       // .w20(context) se bhi button ki width badhayi jaa sakti thi.
           ],
         ).p32(),
