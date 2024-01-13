@@ -1,6 +1,22 @@
 import 'package:catalog/models/catalog.dart';
 
 class CartModel{
+
+
+
+  // single ton class. jiska object ek hi baar banega
+  static final cartModel = CartModel._internal();
+  CartModel._internal();
+  factory CartModel() => cartModel;
+  // single ton class. jiska object ek hi baar banega
+
+
+
+
+
+
+
+
   // catalog field
   CatalogModel _catalog = CatalogModel();
 

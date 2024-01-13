@@ -171,7 +171,25 @@
 // this code was having some errors. gpt's  corrected code:
 import 'dart:convert';
 
+import 'package:catalog/models/cart.dart';
+
 class CatalogModel {
+
+  // single ton class.
+  static final catModel = CatalogModel._internal();
+  CatalogModel._internal();
+  factory CatalogModel() => catModel;
+
+
+
+
+
+
+
+
+
+
+
   static List<Item> items = [];
 
   // get item by ID

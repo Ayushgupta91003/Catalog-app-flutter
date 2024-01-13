@@ -1,3 +1,4 @@
+import 'package:catalog/models/cart.dart';
 import 'package:catalog/pages/home_detail_page.dart';
 import 'package:catalog/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -37,24 +38,27 @@ class CatalogList extends StatelessWidget {
 
 
 
-class CatalogItem extends StatelessWidget {
-
+class CatalogItem extends StatefulWidget {
   final Item catalog;
 
   const CatalogItem({super.key, required this.catalog});
-  // const CatalogItem({super.key});
-  // const CatalogItem({Key? key, required this.catalog}) :
-  //       assert(catalog!=null),
-  //       super(key: key);
 
+  @override
+  State<CatalogItem> createState() => _CatalogItemState();
+}
+
+class _CatalogItemState extends State<CatalogItem> {
+  bool isPressed = false;
+
+  // const CatalogItem({super.key});
   @override
   Widget build(BuildContext context) {
     return VxBox(
         child: Row(
           children: [
             Hero(
-              tag: Key(catalog.id.toString()),            // agar iss child ko hero se wrap kiya toh jaha main image hai usko bhi karna padega.
-                child: CatalogImage(image: catalog.image.toString())
+              tag: Key(widget.catalog.id.toString()),            // agar iss child ko hero se wrap kiya toh jaha main image hai usko bhi karna padega.
+                child: CatalogImage(image: widget.catalog.image.toString())
 
             ),
 
@@ -63,33 +67,36 @@ class CatalogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                catalog.name.toString().text.color(context.theme.secondaryHeaderColor).xl.bold.make(), // toString.
-                catalog.desc.toString().text.textStyle(context.captionStyle).make(),      // captionStyle makes light color.                     // tostring
+                widget.catalog.name.toString().text.color(context.theme.secondaryHeaderColor).xl.bold.make(), // toString.
+                widget.catalog.desc.toString().text.textStyle(context.captionStyle).make(),      // captionStyle makes light color.                     // tostring
                 // 10.heightBox,
                 ButtonBar(
                   // buttonPadding: Vx.mOnly(right: 8),
                   // buttonPadding: EdgeInsets.only(right: 8 ),
                   alignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    "\$${catalog.price}".toString().text.bold.xl.make(),
+                    "\$${widget.catalog.price}".toString().text.bold.xl.make(),
 
                     // 10.heightBox,
-
-                    ElevatedButton(
-                      onPressed: (){},
-                      child: "Add to Cart".text.textStyle(context.captionStyle).color(Colors.white).make(),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            context.theme.primaryColor,
-                        ),
-                        // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        //   RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(5.0), // Set your desired radius here
-                        //   ),
-                        // ),
-                      ),
-
-                    )
+                    _AddToCart(catalog: widget.catalog),
+                    // ElevatedButton(
+                    //   onPressed: (){
+                    //     isPressed = true;
+                    //
+                    //   },
+                    //   child: "Add to Cart".text.textStyle(context.captionStyle).color(Colors.white).make(),
+                    //   style: ButtonStyle(
+                    //     backgroundColor: MaterialStateProperty.all<Color>(
+                    //         context.theme.primaryColor,
+                    //     ),
+                    //     // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    //     //   RoundedRectangleBorder(
+                    //     //     borderRadius: BorderRadius.circular(5.0), // Set your desired radius here
+                    //     //   ),
+                    //     // ),
+                    //   ),
+                    //
+                    // )
                   ],
                 ).pOnly(right: 0.0),
               ],
@@ -99,3 +106,49 @@ class CatalogItem extends StatelessWidget {
     ).color(context.cardColor).rounded.square(150).make().py16();      // py matlab vertical padding(up and down)
   }
 }
+
+
+
+class _AddToCart extends StatefulWidget {
+  final Item catalog;
+  const _AddToCart({super.key, required this.catalog});
+
+  @override
+  State<_AddToCart> createState() => _AddToCartState();
+}
+
+class _AddToCartState extends State<_AddToCart> {
+
+  bool isAdded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: (){
+        final _catalog = CatalogModel();
+        final _cart = CartModel();
+        _cart.catalog = _catalog;
+        _cart.add(widget.catalog);
+        setState(() {
+        isAdded = isAdded.toggle();
+
+
+        });
+
+      },
+      child: isAdded? Icon(Icons.done, color: Colors.white,): "Add to Cart".text.textStyle(context.captionStyle).color(Colors.white).make(),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(
+          context.theme.primaryColor,
+        ),
+        // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        //   RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(5.0), // Set your desired radius here
+        //   ),
+        // ),
+      ),
+
+    );
+  }
+}
+
